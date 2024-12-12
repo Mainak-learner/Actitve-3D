@@ -440,7 +440,7 @@ class NGPModel(Model):
         # lpips = self.lpips(gt_rgb, predicted_rgb)
 
         # all of these metrics will be logged as scalars
-        metrics_dict = {"psnr": float(psnr.item()), "ssim": float(ssim), "lpips": float(lpips)}  # type: ignore
+        metrics_dict = {"psnr": float(psnr.item()), "ssim": float(ssim), "lpips": 0}  # type: ignore
         # TODO(ethan): return an image dictionary
 
         images_dict = {
