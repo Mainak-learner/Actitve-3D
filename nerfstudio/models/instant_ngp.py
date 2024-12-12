@@ -212,7 +212,7 @@ class NGPModel(Model):
         # metrics
         self.psnr = PeakSignalNoiseRatio(data_range=1.0)
         self.ssim = structural_similarity_index_measure
-        self.lpips = LearnedPerceptualImagePatchSimilarity(normalize=True)
+        # self.lpips = LearnedPerceptualImagePatchSimilarity(normalize=True)
 
     def get_training_callbacks(
         self, training_callback_attributes: TrainingCallbackAttributes
@@ -437,7 +437,7 @@ class NGPModel(Model):
         
         psnr = self.psnr(gt_rgb, predicted_rgb)
         ssim = self.ssim(gt_rgb, predicted_rgb)
-        lpips = self.lpips(gt_rgb, predicted_rgb)
+        # lpips = self.lpips(gt_rgb, predicted_rgb)
 
         # all of these metrics will be logged as scalars
         metrics_dict = {"psnr": float(psnr.item()), "ssim": float(ssim), "lpips": float(lpips)}  # type: ignore
