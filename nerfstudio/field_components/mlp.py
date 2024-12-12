@@ -97,6 +97,7 @@ class MLP(FieldComponent):
         self.out_activation = out_activation
         self.net = None
 
+        print(implementation)
         self.tcnn_encoding = None
         if implementation == "torch":
             self.build_nn_modules()
