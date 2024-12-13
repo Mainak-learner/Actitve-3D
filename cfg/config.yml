@@ -31,7 +31,8 @@ logging: !!python/object:nerfstudio.configs.base_config.LoggingConfig
       - ETA (time)
   max_buffer_size: 20
   profiler: basic
-  relative_log_dir: !!python/object/apply:pathlib.PosixPath []
+  relative_log_dir: !!python/object/apply:pathlib.PosixPath
+  - /scratch/user/masarkar/nvf_outputs/logs
   steps_per_log: 10
 machine: !!python/object:nerfstudio.configs.base_config.MachineConfig
   device_type: cuda
@@ -59,7 +60,7 @@ optimizers:
       ramp: cosine
       warmup_steps: 0
 output_dir: !!python/object/apply:pathlib.PosixPath
-- outputs
+- /scratch/user/masarkar/nvf_outputs
 pipeline: !!python/object:nerfstudio.pipelines.dynamic_batch.DynamicBatchPipelineConfig
   _target: !!python/name:nerfstudio.pipelines.dynamic_batch.DynamicBatchPipeline ''
   datamanager: !!python/object:nerfstudio.data.datamanagers.base_datamanager.VanillaDataManagerConfig
@@ -128,7 +129,7 @@ pipeline: !!python/object:nerfstudio.pipelines.dynamic_batch.DynamicBatchPipelin
 project_name: nerfstudio-project
 prompt: null
 relative_model_dir: !!python/object/apply:pathlib.PosixPath
-- nerfstudio_models
+- /scratch/user/masarkar/nvf_outputs/nerfstudio_models
 save_only_latest_checkpoint: true
 steps_per_eval_all_images: 25000
 steps_per_eval_batch: 500
@@ -142,7 +143,7 @@ viewer: !!python/object:nerfstudio.configs.base_config.ViewerConfig
   max_num_display_images: 512
   num_rays_per_chunk: 4096
   quit_on_train_completion: false
-  relative_log_filename: viewer_log_filename.txt
+  relative_log_filename: /scratch/user/masarkar/nvf_outputs/viewer_log_filename.txt
   websocket_host: 0.0.0.0
   websocket_port: null
   websocket_port_default: 7007
